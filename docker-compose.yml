@@ -1,0 +1,25 @@
+
+
+cassandra01:
+    #image: cassandra
+    build: .
+    expose:
+        - "7000"
+        - "7001"
+        - "7199"
+        - "9042"
+        - "9160"
+
+cassandra02:
+    #image: cassandra
+    build: .
+    links:
+        - cassandra01:cassandra01
+    expose:
+        - "7000"
+        - "7001"
+        - "7199"
+        - "9042"
+        - "9160"
+    environment:
+        CASSANDRA_SEEDS: cassandra01
