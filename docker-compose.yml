@@ -1,8 +1,8 @@
 
 
 cassandra01:
-    #image: cassandra
-    build: .
+    image: cassandra:2.2
+    #build: .
     expose:
         - "7000"
         - "7001"
@@ -11,8 +11,8 @@ cassandra01:
         - "9160"
 
 cassandra02:
-    #image: cassandra
-    build: .
+    image: cassandra:2.2
+    #build: .
     links:
         - cassandra01:cassandra01
     expose:
