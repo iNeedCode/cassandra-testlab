@@ -9,6 +9,8 @@ cassandra01:
         - "7199"
         - "9042"
         - "9160"
+    environment:
+        CASSANDRA_BROADCAST_ADDRESS: auto
 
 cassandra02:
     image: cassandra:2.2
@@ -23,3 +25,21 @@ cassandra02:
         - "9160"
     environment:
         CASSANDRA_SEEDS: cassandra01
+        CASSANDRA_BROADCAST_ADDRESS: auto
+
+cassandra03:
+    image: cassandra:2.2
+    #build: .
+    links:
+        - cassandra01:cassandra01
+    expose:
+        - "7000"
+        - "7001"
+        - "7199"
+        - "9042"
+        - "9160"
+    environment:
+        CASSANDRA_SEEDS: cassandra01
+        CASSANDRA_BROADCAST_ADDRESS: auto
+
+

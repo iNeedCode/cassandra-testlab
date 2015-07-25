@@ -1,7 +1,30 @@
 
+## Cassandra Local Test Lab
 
 
 
+
+### Docker
+
+#### Startup test cassandra cluster
+> docker-compose up
+
+#### cqlsh
+> docker exec -it `docker-compose ps -q | sed -n '1p'` cqlsh
+
+#### Nodetool
+- Run `nodetool status` on host 1
+> docker exec `docker-compose ps -q | sed -n '1p'` nodetool info
+
+- Run `nodetool status` on host 2
+> docker exec `docker-compose ps -q | sed -n '2p'` nodetool info
+
+
+
+
+
+### Vagrant 
+**Not yet implemented**
 - vagrant init puppetlabs/centos-6.6-64-nocm
 - extract cassandra in the ./src dir
 - install jdk RPM located in ./src
