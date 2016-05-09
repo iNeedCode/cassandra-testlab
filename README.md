@@ -10,14 +10,14 @@
 > docker-compose up
 
 #### cqlsh
-> docker exec -it `docker-compose ps -q | sed -n '1p'` cqlsh
+> docker exec -it \`docker-compose ps -q | sed -n '1p'\` cqlsh
 
 #### Nodetool
-- Run `nodetool status` on host 1
-> docker exec `docker-compose ps -q | sed -n '1p'` nodetool info
+- Run `nodetool info` on host 1
+> docker exec \`docker-compose ps -q | sed -n '1p'\` nodetool info
 
 - Run `nodetool status` on host 2
-> docker exec `docker-compose ps -q | sed -n '2p'` nodetool info
+> docker exec \`docker-compose ps -q | sed -n '2p'\` nodetool status
 
 
 
